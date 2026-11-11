@@ -17,7 +17,7 @@ export default function Home() {
     }
 
     const deleteUser = async (id) => {
-        const result = await axios.delete(`http://localhost:8080/user/${id}`);
+        await axios.delete(`http://localhost:8080/user/${id}`);
         loadUsers();
     }
 
@@ -44,9 +44,9 @@ export default function Home() {
                                 <td>{user.email}</td>
                                 <td>
                                     <div className="d-flex gap-2 justify-content-center">
-                                        <button className="btn btn-primary">
+                                        <Link className="btn btn-primary" to={`/viewuser/${user.id}`}>
                                             View
-                                        </button>
+                                        </Link>
                                         <Link className="btn btn-outline-primary" to={`/edituser/${user.id}`}>
                                             Edit
                                         </Link>
